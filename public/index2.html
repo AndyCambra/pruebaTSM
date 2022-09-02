@@ -125,7 +125,6 @@
           document.getElementById('signout_button').style.visibility = 'visible';
           document.getElementById('authorize_button').innerText = 'Refresh';
           await listFiles();
-          await createPicker()
         };
 
         if (gapi.client.getToken() === null) {
@@ -187,7 +186,7 @@
           .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
           .setDeveloperKey(API_KEY)
           .setAppId(APP_ID)
-          .setOAuthToken(gapi.client.getToken().access_token)
+          .setOAuthToken(accessToken)
           .addView(view)
           .addView(new google.picker.DocsUploadView())
           .setCallback(pickerCallback)
