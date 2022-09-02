@@ -185,15 +185,15 @@
         const picker = new google.picker.PickerBuilder()
           .enableFeature(google.picker.Feature.NAV_HIDDEN)
           .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
-          .setDeveloperKey(API_KEY)
-          .setAppId(APP_ID)
-          .setOAuthToken(gapi.client.getToken().access_token)
+          /* .setDeveloperKey(API_KEY) */
+          .setAppId(CLIENT_ID)
+          .setOAuthToken(gapi.auth.getToken().access_token)
           .addView(view)
           .addView(new google.picker.DocsUploadView())
           .setCallback(pickerCallback)
           .build();
         picker.setVisible(true);
-        console.log(picker)
+        console.log(33, picker)
       }
 
   /**
